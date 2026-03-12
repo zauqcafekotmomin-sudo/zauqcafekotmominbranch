@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zauq Cafe Kot Momin | Rooftop Cafe & Bakers</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    body { font-family: 'Poppins', system-ui, sans-serif; scroll-behavior: smooth; }
+    .hero-bg { 
+      background: linear-gradient(rgba(0,0,0,0.68), rgba(0,0,0,0.68)), url('./images/banner.jpg') center/cover no-repeat fixed; 
+    }
+  </style>
+</head>
+<body class="bg-[#0f0a05] text-gray-100 min-h-screen">
+
+<!-- ────────────────────────────────────────────────
+     NAVBAR
+───────────────────────────────────────────────── -->
+<nav class="bg-black/90 backdrop-blur-md sticky top-0 z-50 border-b border-amber-900/50">
+  <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+    <div class="flex items-center gap-3.5">
+      <img src="./images/logo.png" alt="Zauq Cafe Logo" class="h-12 sm:h-14 w-auto object-contain drop-shadow-md">
+      <div>
+        <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-amber-400">ZAUQ CAFE</h1>
+        <p class="text-amber-300/90 text-sm sm:text-base -mt-1">Rooftop • Kot Momin</p>
+      </div>
+    </div>
+    <div class="flex gap-6 sm:gap-10 text-base sm:text-lg font-medium">
+      <a href="#home"    class="hover:text-amber-400 transition-colors">Home</a>
+      <a href="#menu"    class="hover:text-amber-400 transition-colors">Menu</a>
+      <a href="#reserve" class="hover:text-amber-400 transition-colors">Reserve / Delivery</a>
+      <a href="#contact" class="hover:text-amber-400 transition-colors">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ────────────────────────────────────────────────
+     HERO
+───────────────────────────────────────────────── -->
+<section id="home" class="hero-bg h-screen flex items-center justify-center text-center px-5">
+  <div class="max-w-4xl">
+    <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold text-amber-400 tracking-tight drop-shadow-2xl">
+      Zauq Rooftop Cafe & Bakers
+    </h1>
+    <p class="mt-5 text-xl sm:text-2xl md:text-3xl text-amber-200/90 font-light">
+      Thana Chowk Kot Momin • Open 12:00 PM – 12:00 AM
+    </p>
+    <div class="mt-10 flex flex-col sm:flex-row gap-5 sm:gap-8 justify-center">
+      <a href="#menu" class="bg-amber-600 hover:bg-amber-700 px-10 py-5 rounded-full text-xl font-bold transition shadow-lg">
+        View Menu
+      </a>
+      <a href="#reserve" class="border-2 border-amber-400 hover:bg-amber-400 hover:text-black px-10 py-5 rounded-full text-xl font-bold transition">
+        Reserve / Delivery
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────────────────────────────────────────
+     MENU
+───────────────────────────────────────────────── -->
+<section id="menu" class="py-20 bg-gradient-to-b from-[#0f0a05] to-black">
+  <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+
+    <h2 class="text-5xl sm:text-6xl font-bold text-center text-amber-400 mb-16">Our Menu</h2>
+
+    <!-- Category selector -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+      <button onclick="showCategory('fastfood')"   class="category-btn bg-amber-800/80 hover:bg-amber-700 py-5 rounded-xl text-lg sm:text-xl font-semibold transition active">Fast Food</button>
+      <button onclick="showCategory('iftar')"      class="category-btn bg-amber-800/80 hover:bg-amber-700 py-5 rounded-xl text-lg sm:text-xl font-semibold transition">Iftar Buffet</button>
+      <button onclick="showCategory('cakes')"      class="category-btn bg-amber-800/80 hover:bg-amber-700 py-5 rounded-xl text-lg sm:text-xl font-semibold transition">Cakes & Pastries</button>
+      <button onclick="showCategory('beverages')"  class="category-btn bg-amber-800/80 hover:bg-amber-700 py-5 rounded-xl text-lg sm:text-xl font-semibold transition">Beverages</button>
+    </div>
+
+    <!-- Fast Food container -->
+   <div id="fastfood" class="category-content">
+  <!-- Sub-category buttons -->
+  <div class="flex flex-wrap gap-3 justify-center mb-10 overflow-x-auto pb-4">
+    <button onclick="showSub('crispy')" class="sub-btn bg-gray-900/80 px-6 py-3 rounded-full text-base sm:text-lg transition">Crispy</button>
+    <button onclick="showSub('burgers')" class="sub-btn bg-gray-900/80 px-6 py-3 rounded-full text-base sm:text-lg transition">Burgers</button>
+    <button onclick="showSub('shawarma')" class="sub-btn bg-gray-900/80 px-6 py-3 rounded-full text-base sm:text-lg transition">Shawarma & Wraps</button>
+    <button onclick="showSub('deals')" class="sub-btn bg-gray-900/80 px-6 py-3 rounded-full text-base sm:text-lg transition">Ba-Zauq Deals</button>
+    <button onclick="showSub('pizza-exclusive')" class="sub-btn bg-gray-900/80 px-6 py-3 rounded-full text-base sm:text-lg transition">Pizza Exclusive</button>
+    <button onclick="showSub('pizza-core')" class="sub-btn bg-gray-900/80 px-6 py-3 rounded-full text-base sm:text-lg transition">Pizza Core</button>
+    <button onclick="showSub('daytime')" class="sub-btn bg-gray-900/80 px-6 py-3 rounded-full text-base sm:text-lg transition">Day Time Offer</button>
+    <button onclick="showSub('amazing')" class="sub-btn bg-gray-900/80 px-6 py-3 rounded-full text-base sm:text-lg transition">Amazing</button>
+  </div>
+
+  <!-- Crispy -->
+  <div id="crispy-sub" class="sub-content grid md:grid-cols-3 gap-6">
+    <div class="bg-gray-900 p-6 rounded-xl shadow-lg">
+      <h3 class="text-xl font-bold text-amber-300">Nuggets (5 pcs)</h3>
+      <p class="text-lg mt-1">Rs 250</p>
+    </div>
+    <div class="bg-gray-900 p-6 rounded-xl shadow-lg">
+      <h3 class="text-xl font-bold text-amber-300">Hot Shots (5 pcs)</h3>
+      <p class="text-lg mt-1">Rs 280</p>
+    </div>
+    <div class="bg-gray-900 p-6 rounded-xl shadow-lg">
+      <h3 class="text-xl font-bold text-amber-300">Garlic Mayo Fries</h3>
+      <p class="text-lg mt-1">Rs 450</p>
+    </div>
+    <!-- ... and all other crispy items I listed -->
+  </div>
+
+  <!-- Burgers -->
+  <div id="burgers-sub" class="sub-content hidden grid md:grid-cols-3 gap-6">
+    <div class="bg-gray-900 p-6 rounded-xl shadow-lg">
+      <h3 class="text-xl font-bold text-amber-300">Zauq Pizza Burger</h3>
+      <p class="text-lg mt-1">Rs 610</p>
+    </div>
+    <!-- ... and all other burgers -->
+  </div>
+
+  <!-- Shawarma & Wraps -->
+  <div id="shawarma-sub" class="sub-content hidden grid md:grid-cols-3 gap-6">
+    <!-- all shawarma items -->
+  </div>
+
+  <!-- Ba-Zauq Deals -->
+  <div id="deals-sub" class="sub-content hidden grid md:grid-cols-3 gap-6">
+    <!-- parathas, steaks, combos -->
+  </div>
+
+  <!-- Pizza Exclusive -->
+  <div id="pizza-exclusive-sub" class="sub-content hidden grid md:grid-cols-3 gap-6">
+    <!-- kabab crust, crown crust, etc. -->
+  </div>
+
+  <!-- Pizza Core -->
+  <div id="pizza-core-sub" class="sub-content hidden grid md:grid-cols-3 gap-6">
+    <!-- chicken tikka, fajita, etc. -->
+  </div>
+
+  <!-- Day Time Offer -->
+  <div id="daytime-sub" class="sub-content hidden grid md:grid-cols-3 gap-6">
+    <!-- combo offers -->
+  </div>
+
+  <!-- Amazing -->
+  <div id="amazing-sub" class="sub-content hidden grid md:grid-cols-3 gap-6">
+    <!-- deep dish, lava burger, etc. -->
+  </div>
+</div>
+
+      <!-- Sub-content placeholders – you can expand later -->
+      <div id="crispy-sub"     class="sub-content grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-10"></div>
+      <div id="burgers-sub"    class="sub-content hidden grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-10"></div>
+      <div id="shawarma-sub"   class="sub-content hidden grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-10"></div>
+      <div id="deals-sub"      class="sub-content hidden grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-10"></div>
+      <div id="pizza-exclusive-sub" class="sub-content hidden grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-10"></div>
+      <div id="pizza-core-sub" class="sub-content hidden grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-10"></div>
+      <div id="daytime-sub"    class="sub-content hidden grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-10"></div>
+      <div id="amazing-sub"    class="sub-content hidden grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-10"></div>
+    </div>
+
+    <!-- Iftar Buffet -->
+    <div id="iftar" class="category-content hidden">
+      <div class="bg-gradient-to-br from-amber-950 to-amber-900 p-8 sm:p-12 rounded-3xl shadow-2xl text-center border border-amber-800/40">
+        <h3 class="text-4xl sm:text-5xl font-bold text-amber-300 mb-4">Iftar Buffet</h3>
+        <p class="text-xl sm:text-2xl mb-3">Starting from 10th Ramadan</p>
+        <p class="text-4xl sm:text-5xl font-extrabold text-yellow-400 mb-8">Rs 1,299 <span class="text-2xl sm:text-3xl font-normal">per head</span></p>
+
+        <div class="grid md:grid-cols-2 gap-8 text-left max-w-4xl mx-auto text-lg sm:text-xl">
+          <div>
+            <h4 class="text-2xl font-semibold text-amber-200 mb-4">Starters</h4>
+            <ul class="space-y-2.5">
+              <li>• Khajor (Dates)</li>
+              <li>• Shehrbit</li>
+              <li>• Cold Sandwich</li>
+              <li>• Pakora</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-2xl font-semibold text-amber-200 mb-4">Main Course</h4>
+            <ul class="space-y-2.5">
+              <li>• Egg Fried Rice</li>
+              <li>• Biryani</li>
+              <li>• Chicken Manchurian</li>
+              <li>• Macaroni Salad</li>
+              <li>• Russian Salad</li>
+              <li>• Roghni Naan</li>
+              <li>• Flaming Pasta</li>
+              <li>• Chicken White Handi</li>
+              <li>• Chicken Wings</li>
+              <li>• Pizza</li>
+              <li>• Zarda</li>
+              <li>• Grill Sandwich</li>
+              <li>• Gulab Jamun</li>
+              <li>• Water</li>
+              <li>• Tea</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="mt-10 text-xl sm:text-2xl">
+          Reserve your table now: 
+          <a href="https://wa.me/923005381900" class="text-amber-300 underline hover:text-amber-200">0300-5381900</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Cakes & Pastries (placeholder) -->
+    <div id="cakes" class="category-content hidden text-center py-24">
+      <h3 class="text-5xl font-bold text-amber-400 mb-6">Cakes & Pastries</h3>
+      <p class="text-2xl max-w-2xl mx-auto">Fresh cakes, pastries and bakery items coming soon.<br>Stay tuned or contact us for custom orders!</p>
+    </div>
+
+    <!-- Beverages -->
+    <div id="beverages" class="category-content hidden">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div class="bg-gray-900/70 p-8 rounded-3xl text-center border border-amber-900/40">
+          <h3 class="text-3xl font-bold text-amber-300 mb-3">Tea</h3>
+          <p class="text-4xl font-extrabold text-amber-400">Rs 100</p>
+        </div>
+        <!-- Add more beverages here later -->
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ────────────────────────────────────────────────
+     RESERVATIONS & DELIVERY
+───────────────────────────────────────────────── -->
+<section id="reserve" class="py-20 bg-black/95 border-t border-amber-900/50">
+  <div class="max-w-3xl mx-auto px-5 sm:px-6 lg:px-8">
+
+    <h2 class="text-5xl sm:text-6xl font-bold text-center mb-10 text-amber-400">Reservations & Delivery</h2>
+
+    <!-- Delivery policy box -->
+    <div class="bg-gradient-to-br from-amber-950 to-amber-900 p-8 rounded-3xl mb-12 text-center border border-amber-800/60 shadow-xl">
+      <h3 class="text-3xl font-bold text-amber-200 mb-5">Delivery Policy</h3>
+      <p class="text-xl leading-relaxed mb-6">
+        <strong class="text-amber-300">Free Delivery</strong> inside Kot Momin city limits.<br>
+        For surrounding villages and other sites,<br>
+        <strong>delivery charges</strong> will be applied according to distance.
+      </p>
+      <a href="https://wa.me/923005381900" class="inline-flex items-center gap-3 bg-green-700 hover:bg-green-600 px-8 py-4 rounded-full text-xl font-bold transition shadow-md">
+        <i class="fab fa-whatsapp text-2xl"></i>
+        +92 300 5381900
+      </a>
+      <p class="mt-4 text-amber-300/90 text-lg">Call or WhatsApp for charges & availability</p>
+    </div>
+
+    <!-- Form -->
+    <form id="reservationForm" class="space-y-6 bg-gray-900/80 p-8 sm:p-10 rounded-3xl border border-amber-800/50 backdrop-blur-sm">
+      <input id="name"     type="text"     placeholder="Full Name *"          required class="w-full bg-gray-800/70 p-5 rounded-xl border border-amber-700 focus:border-amber-400 focus:outline-none text-lg">
+      <input id="whatsapp" type="tel"      placeholder="WhatsApp Number *"    required class="w-full bg-gray-800/70 p-5 rounded-xl border border-amber-700 focus:border-amber-400 focus:outline-none text-lg">
+      <input id="email"    type="email"    placeholder="Email (optional)"     class="w-full bg-gray-800/70 p-5 rounded-xl border border-amber-700 focus:border-amber-400 focus:outline-none text-lg">
+      <select id="type" required class="w-full bg-gray-800/70 p-5 rounded-xl border border-amber-700 focus:border-amber-400 focus:outline-none text-lg">
+        <option value="">Select Type *</option>
+        <option value="Fast Food">Fast Food</option>
+        <option value="Iftar Buffet">Iftar Buffet</option>
+        <option value="General">General Table</option>
+        <option value="Delivery">Delivery</option>
+        <option value="Event">Event</option>
+      </select>
+      <textarea id="query" rows="5" placeholder="Your message, suggestion or full delivery address (required if choosing Delivery)" class="w-full bg-gray-800/70 p-5 rounded-xl border border-amber-700 focus:border-amber-400 focus:outline-none text-lg resize-y"></textarea>
+
+      <button type="submit" class="w-full bg-amber-600 hover:bg-amber-700 py-6 text-xl sm:text-2xl font-bold rounded-2xl transition shadow-lg">
+        Submit Reservation / Delivery Request
+      </button>
+    </form>
+
+    <p class="text-center mt-8 text-lg text-amber-300/90">
+      We will confirm via WhatsApp shortly after submission.
+    </p>
+
+  </div>
+</section>
+
+<!-- ────────────────────────────────────────────────
+     CONTACT
+───────────────────────────────────────────────── -->
+<section id="contact" class="py-20 border-t border-amber-900/50">
+  <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
+
+    <div>
+      <h2 class="text-5xl sm:text-6xl font-bold text-amber-400 mb-10">Contact Us</h2>
+      <div class="space-y-6 text-xl sm:text-2xl">
+        <p>📍 <span class="text-amber-200">Thana Chowk Kot Momin</span></p>
+        <p>📞 <a href="https://wa.me/923005381900" class="text-amber-300 hover:text-amber-200 transition">+92 300 5381900</a></p>
+        <p>✉️ <a href="mailto:zauqcafekotmomin@gmail.com" class="text-amber-300 hover:text-amber-200 transition">zauqcafekotmomin@gmail.com</a></p>
+        <p class="text-amber-200/90">Open daily: 12:00 PM – 12:00 AM</p>
+      </div>
+    </div>
+
+    <div class="rounded-2xl overflow-hidden shadow-2xl border border-amber-900/50">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3319.5!2d72.8!3d32.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDA2JzM2LjAiTiA3MsKwNDgnMDAuMCJF!5e0!3m2!1sen!2spk!4v1728000000000" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-black py-10 text-center border-t border-amber-900/50">
+  <p class="text-amber-300/80">© 2025–2026 Zauq Rooftop Cafe & Bakers Kot Momin</p>
+  <p class="mt-2 text-amber-400/70 text-sm">Crafted for Your Zauq</p>
+</footer>
+
+<!-- ────────────────────────────────────────────────
+     JAVASCRIPT
+───────────────────────────────────────────────── -->
+<script>
+  // EmailJS – replace these three values after you create account/template
+  emailjs.init("YOUR_PUBLIC_KEY_HERE");
+
+  document.getElementById("reservationForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const data = {
+      name:    document.getElementById("name").value,
+      whatsapp: document.getElementById("whatsapp").value,
+      email:   document.getElementById("email").value || "—",
+      type:    document.getElementById("type").value,
+      query:   document.getElementById("query").value || "—"
+    };
+
+    emailjs.send("YOUR_SERVICE_ID_HERE", "YOUR_TEMPLATE_ID_HERE", data)
+      .then(() => {
+        alert("Thank you! Your reservation / delivery request has been sent.\nWe will contact you on WhatsApp shortly.");
+        this.reset();
+      })
+      .catch(err => {
+        alert("Sorry, there was a problem sending the message.\nPlease try again or WhatsApp us directly.");
+        console.error(err);
+      });
+  });
+
+  // Category & sub-category switching
+  function showCategory(id) {
+    document.querySelectorAll('.category-content').forEach(el => el.classList.add('hidden'));
+    document.getElementById(id)?.classList.remove('hidden');
+
+    document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+    event?.target?.classList.add('active');
+  }
+
+  function showSub(id) {
+    document.querySelectorAll('.sub-content').forEach(el => el.classList.add('hidden'));
+    document.getElementById(id + '-sub')?.classList.remove('hidden');
+  }
+
+  // Default view
+  showCategory('fastfood');
+</script>
+
+</body>
+</html>
